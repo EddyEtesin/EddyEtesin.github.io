@@ -309,7 +309,7 @@ function applyFilter(lang){
 
 async function fetchRepos(){
   try{
-    const res=await fetch('https://api.github.com/users/EddyEtesin/repos?per_page=100&sort=updated');
+    const res=await fetch('https://api.github.com/users/EddyEtesin/repos?per_page=100&sort=updated',{signal:controller.signal,headers:{'Authorization':'token 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'}});
     if(!res.ok)throw new Error();
     const data=await res.json();
     allRepos=data.filter(r=>!r.fork);
